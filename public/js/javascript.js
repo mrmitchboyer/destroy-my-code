@@ -1,40 +1,40 @@
 $(document).ready(function() {
-		
-	// Generate the clips. In this case I'm using 5 (or 25 pieces)
+
 	(genClips = function() {
 		
-		// For easy use
-		$t = $('.exploading-code-box');
+		// grab the div's info
+		$t = $('.exploding-code-box');
 		
-		// Like I said, we're using 5!
-		var amount = 5;
-		
-		// Get the width of each clipped rectangle.
-		var width = $t.height() / amount;
+		// I'd like to be able to set this in the program
+		var amount = 7;
+
 		var height = $t.height() / amount;
+		var widthAmount = Math.ceil($t.width()/height); //number of boxes wide
+		var width = $t.width() / widthAmount;
 		var divWidth = $t.width()
 		
-		// The total is the square of the amount
-		var totalSquares = Math.pow(amount, 2);
+		var totalSquares = amount * widthAmount;
 		
-		// The HTML of the exploading-content
-		var html = $t.find('.exploading-content').html();
+		// The HTML of the exploding-content
+		var divContent = $t.find('.exploding-content').html();
 		
-		var y = 0;
+		var top = 0;
+		var right = width;
+		var bottom = height;
+		var left = 0;
+
+		for(var i = 0; i < totalSquares; i++) { 
 		
-		for(var z = 0; z <= (amount*width); z = z+width) { 
-		
-			$('<div class="clipped" style="clip: rect('+y+'px, '+(z+width)+'px, '+(y+height)+'px, '+z+'px)">'+html+'</div>').appendTo($t);
+			$('<div class="clipped" style="clip: rect('+top+'px, '+right+'px, '+bottom+'px, '+left+'px)">'+divContent+'</div>').appendTo($t);
+
+			right += width;
+			left += width;
 			
-			if(z === (amount*width)-width) {
-			
-				y = y + height;
-				z = -width;
-			
-			}
-			
-			if(y === (amount*height)) {
-				z = 9999999;
+			if(divWidth < right) {
+				top +=height;
+				bottom += height;
+				left = 0
+				right = width;
 			}
 			
 		}
@@ -53,21 +53,22 @@ $(document).ready(function() {
 		clicked = false;
 	
 	// On click
-		$('.blow-it-up a').on('click', function() {
+		$('.blow-it-up').on('click', function() {
 		
 		if(clicked === false) {
 			
 			clicked = true;
 			
-			$('.exploading-code-box .exploading-content').css({'display' : 'none'});	
+			// hides the main div
+			$('.exploding-code-box .exploding-content').css({'display' : 'none'});	
 	
-			// Apply to each exploading-code-box div.
-			$('.exploading-code-box div:not(.exploading-content)').each(function() {
+			// Apply to each exploding-code-box div.
+			$('.exploding-code-box div:not(.exploding-content)').each(function() {
 				
 				// So the speed is a random speed between 90m/s and 120m/s. I know that seems like a lot
 				// But otherwise it seems too slow. That's due to how I handled the timeout.
 				var v = rand(120, 90),
-					angle = rand(80, 89), // The angle (the angle of projection) is a random number between 80 and 89 degrees.
+					angle = rand(60, 89), // The angle (the angle of projection) is a random number between 80 and 89 degrees.
 					theta = (angle * Math.PI) / 180, // Theta is the angle in radians
 					g = -9.8; // And gravity is -9.8. If you live on another planet feel free to change
 					
@@ -117,7 +118,7 @@ $(document).ready(function() {
 						first = true;
 						
 						
-						$('.exploading-code-box').css({'top' : '-1000px', 'transition' : 'none'});
+						$('.exploding-code-box').css({'top' : '-1000px', 'transition' : 'none'});
 						$(self).css({'left' : '0', 'bottom' : '0', 'opacity' : '1', 'transition' : 'none', 'transform' : 'none'});
 					
 								
@@ -133,4 +134,5 @@ $(document).ready(function() {
 		}
 
 	});
+
 });

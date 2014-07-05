@@ -49,25 +49,25 @@ pre {
 
 /* EXPLODING STUFF */
 
-.exploading-code-box {
+.exploding-code-box {
   padding: 1em;
   margin: .5em 0;
 }
 
 /*styles the box*/
-.exploading-code-box div {
+.exploding-code-box div {
   z-index: 9999999;
 }
 
 /*not sure what this does*/
-.exploading-code-box, .exploading-code-box div {
+.exploding-code-box, .exploding-code-box div {
   width: 100%;
   height: 490px;
   position: relative;
 }
 
 /*makes smaller boxes*/
-.exploading-code-box div {
+.exploding-code-box div {
   position: absolute;
   top: auto;
   left: 0;
