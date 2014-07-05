@@ -1,0 +1,74 @@
+@import './bootstrap.min.css';
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4em;
+}
+
+pre {
+  height: 490px;
+  overflow: hidden;
+}
+
+#form_box {
+  margin-top: 33px;
+}
+
+.code-box {
+  padding-top: 10px;
+}
+
+.btn-flat {
+  border-radius: 0px;
+}
+
+.form-control {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: hidden; 
+  font-size: 18px;
+  color: #0caf00;
+  background-color: #2d2d2d;
+  border: 2px solid #4c4c4c !important;
+  border-radius: 0px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 100;
+  box-shadow:none !important;
+}
+
+.btn-wrapper {
+  padding: 25px;
+}
+
+.btn-wrapper a:hover {
+  text-decoration: none;
+}
+
+/* EXPLODING STUFF */
+
+.exploading-code-box {
+  padding: 1em;
+  margin: .5em 0;
+}
+
+/*styles the box*/
+.exploading-code-box div {
+  z-index: 9999999;
+}
+
+/*not sure what this does*/
+.exploading-code-box, .exploading-code-box div {
+  width: 100%;
+  height: 490px;
+  position: relative;
+}
+
+/*makes smaller boxes*/
+.exploading-code-box div {
+  position: absolute;
+  top: auto;
+  left: 0;
+}

@@ -1,0 +1,16 @@
+<div class="container text-center">
+  <div style="height: 20px;"></div>
+  <header>
+    <h1>DESTROY MY CODE!</h1>
+    <p>Type or paste in the code you would like to destroy:</p>
+  </header>
+
+  <div id="form_box">
+    <form action="/view-code" method="POST">
+      <p>
+        <textarea class="form-control" rows="18" name="code"><%= @begin_code %></textarea>
+      </p>
+      <button type="submit" class="btn btn-danger btn-lg btn-flat">LETS DO THIS!</button>
+    </form>
+  </div>
+</div>
