@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Stylesheets -->
     <link rel='stylesheet' href='/stylesheets/custom.css' type='text/css' />
     <link rel="stylesheet" href="/prism/prism.css" type='text/css' />
     <!-- Exploding DIV -->
@@ -9,7 +13,16 @@
   <title>Destroy My Code</title>
   </head>
   <body>
+    <div class="hide-the-boxes">
     <%= yield %>
+    
+      <div class="footer">
+        <div class="container text-center">
+          <p class="text-muted">Made by <a href="http://mitchboyer.com" target="_blank">Mitch Boyer</a> with &#9825; after a frustrating week of learning to code.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Syntax Highlighting -->
     <script src="/prism/prism.js"></script>
   </body>
 </html>

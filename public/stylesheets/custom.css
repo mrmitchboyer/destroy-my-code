@@ -2,6 +2,15 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
 
 h1 {
   font-family: 'Oswald', sans-serif;
@@ -55,7 +64,7 @@ pre {
 
 /*styles the box*/
 .exploding-code-box div {
-  z-index: 9999999;
+  z-index: 900;
 }
 
 /*not sure what this does*/
@@ -70,4 +79,26 @@ pre {
   position: absolute;
   top: auto;
   left: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  padding-top: 15px;
+  background-color: #f3f3f3;
+}
+
+.footer a {
+  color: #d95959;
+}
+
+.hide-the-boxes {
+  overflow: hidden;
+}
+
+.select-language {
+  margin: 0 auto 25px;
+  width: 300px;
 }

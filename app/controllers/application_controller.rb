@@ -13,13 +13,19 @@ class ApplicationController < Sinatra::Base
       redirect '/'
     else
       session['code'] = params[:code]
+      session['lang'] = params[:lang]
       redirect '/blow-it-up'
     end
   end
 
   get '/blow-it-up' do
     @code = Code.new(session['code'])
+    @lang = session['lang']
     erb :explosion
+  end
+
+  get '/wasnt-that-nice' do
+    erb :resolution
   end
 
 end
